@@ -67,8 +67,7 @@ function getAnalogs(id, callback) {
 }
 
 function getSuitableMedicines(medicine, callback) {
-    const start = Date.now();
-    let search = {internationalName: medicine['internationalName'], farmGroup: medicine['farmGroup']};
+    let search = {internationalName: medicine['internationalName']};
     collection.aggregate([
         {$match: search},
         {
