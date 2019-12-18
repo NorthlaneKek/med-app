@@ -1,0 +1,18 @@
+<form class="example-form" [formGroup]="myForm">
+    <mat-form-field class="full-width">
+        <input
+                type="text"
+                placeholder="Pick one"
+                aria-label="Number"
+                matInput
+                (input)="startSearch($event.target.value)"
+                [formControlName]="'search'"
+                [matAutocomplete]="auto">
+        <mat-autocomplete [displayWith]="displayFn" #auto="matAutocomplete" (optionSelected)="generateReport($event.option.value)">
+            <mat-option *ngFor="let option of medicines | async" [value]="option">
+                {{option.mainName}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-spinner [diameter]="20" *ngIf="loader"></mat-spinner>
+    </mat-form-field>
+</form>

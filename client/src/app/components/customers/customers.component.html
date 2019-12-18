@@ -1,0 +1,4 @@
+<h4>Компании производители</h4>
+<ng-container *ngFor="let customer of customers.getData | async">
+  <div>{{customer.faceMainCompany}}</div>
+</ng-container>
